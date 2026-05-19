@@ -2,11 +2,15 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <vector>
 
 int main() {
   // Set origin Co-ordinates
   int x = 0;
   int y = 0;
+
+  std::vector<int> xPos;
+  std::vector<int> yPos;
 
   int num_steps;
   int direction;
@@ -45,8 +49,14 @@ int main() {
         std::cout << "Error";
     };
 
-    std::cout << "Step "  << i+1 << ": Moved " << directionStr << " to (" << x << ", " << y << ").\n";
+    // Update xPos and yPos
+    xPos.push_back(x);
+    yPos.push_back(y);
 
+  };
+
+  for (std::size_t i = 0; i < xPos.size(); ++i) {
+    std::cout << "(" << xPos[i] << ", " << yPos[i] << ")\n";
   };
   std::cout << "Final position: (" << x << ", " << y << ")\n";
   return 0;
