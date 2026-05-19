@@ -1,0 +1,16 @@
+# Compiled binaries
+*.out
+*.exe
+
+# Build folders
+build/
+
+# Object files
+*.o
+*.obj
+
+# OS files
+.DS_Store
+
+# Vim/Neovim swap files
+*.swp
