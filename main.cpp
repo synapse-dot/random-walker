@@ -1,20 +1,18 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
 #include <vector>
 
 int main() {
   // Set origin Co-ordinates
-  int x = 0;
-  int y = 0;
-
   std::vector<int> xPos;
   std::vector<int> yPos;
 
+  xPos.push_back(0);
+  yPos.push_back(0);
+
   int num_steps;
   int direction;
-  std::string directionStr;
 
   // Seed with current time
   std::srand(std::time(0));
@@ -30,34 +28,31 @@ int main() {
     direction = std::rand() % 4;
     switch (direction) {
       case 0:
-        y++;
-        directionStr = "UP";
+        xPos.push_back(xPos[i]);
+        yPos.push_back(yPos[i]+1);
         break;
       case 1:
-        x++;
-        directionStr = "RIGHT";
+        xPos.push_back(xPos[i]+1);
+        yPos.push_back(yPos[i]);
         break;
       case 2:
-        y--;
-        directionStr = "DOWN";
+        xPos.push_back(xPos[i]);
+        yPos.push_back(yPos[i]-1);
         break;
       case 3:
-        x--;
-        directionStr = "LEFT";
+        xPos.push_back(xPos[i]-1);
+        yPos.push_back(yPos[i]);
         break;
       default:
         std::cout << "Error";
     };
-
-    // Update xPos and yPos
-    xPos.push_back(x);
-    yPos.push_back(y);
-
   };
 
   for (std::size_t i = 0; i < xPos.size(); ++i) {
     std::cout << "(" << xPos[i] << ", " << yPos[i] << ")\n";
   };
-  std::cout << "Final position: (" << x << ", " << y << ")\n";
+
+  std::cout << "Final position: (" << xPos.back() << ", " << yPos.back() << ")\n";
   return 0;
-};
+}; 
+
