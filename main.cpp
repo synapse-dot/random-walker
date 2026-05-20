@@ -3,7 +3,6 @@
 #include <ctime>
 #include <vector>
 #include <fstream>
-#include <string>
 
 int main() {
   // Set origin Co-ordinates
@@ -21,8 +20,6 @@ int main() {
   std::cout << "How many steps to take: ";
   std::cin >> num_steps;
 
-  int x, y;
-  
   for (int i = 0; i < num_steps; ++i) {
     /*
     Get a random direction 
@@ -31,8 +28,8 @@ int main() {
     direction = std::rand() % 4;
 
     // Update xPos and yPos accordingly
-    x = xPos.back();
-    y = yPos.back();
+    int x = xPos.back();
+    int y = yPos.back();
     switch (direction) {
       case 0: y++; break;
       case 1: x++; break;
