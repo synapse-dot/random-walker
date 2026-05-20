@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <fstream>
+#include <string>
 
 int main() {
   // Set origin Co-ordinates
@@ -20,7 +22,7 @@ int main() {
   std::cin >> num_steps;
 
   int x, y;
-
+  
   for (int i = 0; i < num_steps; ++i) {
     /*
     Get a random direction 
@@ -43,11 +45,16 @@ int main() {
     yPos.push_back(y);
   };
 
-  for (std::size_t i = 0; i < xPos.size(); ++i) {
-    std::cout << "(" << xPos[i] << ", " << yPos[i] << ")\n";
-  };
+  // Write to path.txt
+  std::ofstream pathLog("path.txt");
 
-  std::cout << "Final position: (" << xPos.back() << ", " << yPos.back() << ")\n";
+  for (std::size_t i = 0; i < xPos.size(); ++i) {
+    if (pathLog.is_open()) {
+      pathLog << xPos[i] << " " << yPos[i] << "\n";
+    };
+  };
+  
+  std::cout << "All positions written to path.txt\n"; 
   return 0;
 }; 
 
