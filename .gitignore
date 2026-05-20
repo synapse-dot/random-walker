@@ -1,16 +1,23 @@
-# Compiled binaries
+# C++ build files
+*.o
 *.out
 *.exe
+main
 
 # Build folders
 build/
 
-# Object files
-*.o
-*.obj
+# Data output (optional choice)
+# If you DON'T want to track generated paths:
+# path.txt
 
 # OS files
 .DS_Store
 
-# Vim/Neovim swap files
+# Vim / Neovim
 *.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
